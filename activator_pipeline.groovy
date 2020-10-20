@@ -1,7 +1,7 @@
 pipelineJob("activator-pipeline") {
 	description()
 	keepDependencies(false)
-	authenticationToken('secret')
+	authenticationToken('activatorbuild')
 	parameters {
 		stringParam("repourl", "", "")
 		stringParam("projectid", "", "")
