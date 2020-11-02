@@ -16,7 +16,7 @@ pipelineJob("citrix-activator") {
                         url '$repourl'
                         credentials("citrix")
                     }
-                branch("MVP2")
+                branch("*/MVP2")
                 }
             }
             scriptPath("Jenkinsfile")
