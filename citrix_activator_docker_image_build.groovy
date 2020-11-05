@@ -2,10 +2,7 @@ pipelineJob("citrix-activator") {
     description()
     keepDependencies(false)
     parameters {
-        stringParam("repourl", "", "")
-        stringParam("projectid", "", "")
-        stringParam("owner", "", "")
-        stringParam("configbucket", "", "")
+        stringParam("repourl", "", "git@github.com:tranquilitybase-io/gcp-citrix-activator.git")
         stringParam("job_unique_id", "", "")
     }
     definition {
