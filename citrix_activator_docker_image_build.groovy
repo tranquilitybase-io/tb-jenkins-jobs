@@ -13,6 +13,7 @@ pipelineJob("gcp-citrix-activator-image") {
                         url '$repourl'
                         credentials("citrix")
                     }
+                branch("*/issue-97")
                 }
             }
             scriptPath("Jenkinsfile")
