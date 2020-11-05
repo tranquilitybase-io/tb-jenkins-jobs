@@ -16,7 +16,7 @@ pipelineJob("gcp-citrix-activator-image") {
                 branch("*/issue-97")
                 }
             }
-            scriptPath("Jenkinsfile")
+            scriptPath("./docker/Jenkinsfile")
         }
     }
     disabled(false)
