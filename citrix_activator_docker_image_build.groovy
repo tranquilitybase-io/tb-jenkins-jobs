@@ -1,4 +1,4 @@
-pipelineJob("citrix-activator") {
+pipelineJob("gcp-citrix-activator-image") {
     description()
     keepDependencies(false)
     parameters {
