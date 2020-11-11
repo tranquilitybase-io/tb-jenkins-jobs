@@ -24,6 +24,8 @@ pipelineJob("activator-pipeline") {
            printContributedVariables(true)
            printPostContent(true)
            silentResponse(false)
+           regexpFilterText("")
+           regexpFilterExpression("")
      }
     }
 	definition {
