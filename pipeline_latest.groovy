@@ -20,6 +20,20 @@ pipelineJob("activator-pipeline") {
              defaultValue("") //Optional, defaults to empty string
     }
    }
+         genericRequestVariables {
+          genericRequestVariable {
+           key("repourl")
+            regexpFilter("")
+    }
+          genericRequestVariable {
+           key("projectid")
+            regexpFilter("")
+    }
+          genericRequestVariable {
+           key("job_unique_id")
+            regexpFilter("")
+    }		 
+   }
            token('activatorbuild')
            printContributedVariables(true)
            printPostContent(true)
