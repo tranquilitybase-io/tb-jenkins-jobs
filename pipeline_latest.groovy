@@ -1,7 +1,6 @@
-pipelineJob("activator-pipeline") {
+pipelineJob("pipeline_latest") {
 	description()
 	keepDependencies(false)
-	authenticationToken('activatorbuild')
 	parameters {
 		stringParam("repourl", "", "")
 		stringParam("projectid", "", "")
