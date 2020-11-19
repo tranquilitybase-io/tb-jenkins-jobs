@@ -1,4 +1,4 @@
-pipelineJob("pipeline_latest") {
+pipelineJob("activator-pipeline-json") {
 	description()
 	keepDependencies(false)
 	parameters {
@@ -6,7 +6,6 @@ pipelineJob("pipeline_latest") {
 		stringParam("projectid", "", "")
 		stringParam("activator_params", "", "")
 		stringParam("job_unique_id", "", "")
-		stringParam("activator_name", "", "")
 	}
         triggers {
           genericTrigger {
