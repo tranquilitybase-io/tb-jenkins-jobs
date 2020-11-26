@@ -14,7 +14,7 @@ pipelineJob("activator-pipeline-json") {
                     key("activator_params")
                     value("\$.activator_params")
                     expressionType("JSONPath") //Optional, defaults to JSONPath
-                    regexpFilter("") //Optional, defaults to empty string
+                    regexpFilter("") //Optional, defaults  to empty string
                     defaultValue("") //Optional, defaults to empty string
                 }
             }
