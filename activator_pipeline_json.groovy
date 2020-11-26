@@ -6,6 +6,7 @@ pipelineJob("activator-pipeline-json") {
         stringParam("projectid", "", "")
         stringParam("activator_params", "", "")
         stringParam("job_unique_id", "", "")
+        stringParam("repobranch", "**", "**")
     }
     triggers {
         genericTrigger {
@@ -31,6 +32,10 @@ pipelineJob("activator-pipeline-json") {
                     key("job_unique_id")
                     regexpFilter("")
                 }
+                genericRequestVariable {
+                    key("repobranch")
+                    regexpFilter("")
+                }
             }
             token('activatorbuild')
             printContributedVariables(true)
@@ -44,6 +49,7 @@ pipelineJob("activator-pipeline-json") {
         cpsScm {
             scm {
                 git {
+                    branch '$repobranch'
                     extensions {
                         wipeOutWorkspace()
                     }
