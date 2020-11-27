@@ -6,7 +6,7 @@ pipelineJob("activator-pipeline-json") {
         stringParam("projectid", "", "")
         stringParam("activator_params", "", "")
         stringParam("job_unique_id", "", "")
-        stringParam("repobranch", "**", "**")
+        stringParam("repobranch", "**", "Specify a branch or tag to be built. Default is current main/master branch. See documentation for 'branches to build' in pipeline")
     }
     triggers {
         genericTrigger {
