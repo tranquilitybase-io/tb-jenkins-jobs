@@ -13,7 +13,7 @@ pipelineJob("activator-pipeline-gcr") {
 			scm {
 				git {
 					remote {
-						url 'https://source.developers.google.com/p/shared-ec-uhig8as3/r/github_zain-gft_tb-activator-gft-base'
+						url '$repourl'
 						credentials("${GCR_ID}")
 					}
 				}
