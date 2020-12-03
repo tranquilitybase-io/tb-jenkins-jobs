@@ -55,7 +55,7 @@ pipelineJob("activator-pipeline-json") {
                     }
                     remote {
                         url '$repourl'
-                        credentials("gituser")
+//                        credentials("gituser")
                     }
                 }
             }
