@@ -14,7 +14,7 @@ pipelineJob("activator-pipeline-gcr") {
 				git {
 					remote {
 						url '$repourl'
-						credentials("${GCR_ID}")
+						credentials("source:${GCR_ID}")
 					}
 				}
 			}
