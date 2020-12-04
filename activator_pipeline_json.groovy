@@ -49,7 +49,7 @@ pipelineJob("activator-pipeline-json") {
                     }
                     remote {
                         url '$repourl'
-                        credentials("gituser")
+                        credentials("source:${GCR_ID}")
                     }
                 }
             }
