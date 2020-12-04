@@ -1,5 +1,5 @@
 pipelineJob("activator-pipeline-json") {
-    description()
+    description("This job clones repos that are hosted on GCR. It takes 4 parameters. The Job also uses the credentials that were set up using the Google Oauth plugin")
     keepDependencies(false)
     parameters {
         stringParam("repourl", "", "")
