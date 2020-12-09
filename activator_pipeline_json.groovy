@@ -1,11 +1,12 @@
 pipelineJob("activator-pipeline-json") {
-    description("This job clones repos that are hosted on GCR. It takes 4 parameters. The Job also uses the credentials that were set up using the Google Oauth plugin")
+    description("This job clones a repo and then calls the Jenkinsfile on that repo. it only clones repos that are hosted on GCR. It takes parameters described below. The Job also uses the credentials that were set up using the Google Oauth plugin")
     keepDependencies(false)
     parameters {
-        stringParam("repourl", "", "")
-        stringParam("projectid", "", "")
-        stringParam("activator_params", "", "")
-        stringParam("job_unique_id", "", "")
+        stringParam("repourl", "", "Public git repository or Google Source Repository to clone the activator code from")
+        stringParam("projectid", "", "GCP project id to deploy the activator into")
+        stringParam("activator_params", "", "JSON structure containing key-value parameters for the activator. Passed into the job via the Generic Trigger Jenkins plugin.")
+        stringParam("job_unique_id", "", "An id used by external callers (e.g. GCP DAC) to identify an instance of this job. Not required when running from Jenkins")
+        stringParam("repobranch", "**", "Specify a branch or tag to be built. Default is current main/master branch. See documentation for 'branches to build' in pipeline")
     }
     triggers {
         genericTrigger {
@@ -31,6 +32,10 @@ pipelineJob("activator-pipeline-json") {
                     key("job_unique_id")
                     regexpFilter("")
                 }
+                genericRequestVariable {
+                    key("repobranch")
+                    regexpFilter("")
+                }
             }
             token('activatorbuild')
             printContributedVariables(true)
@@ -44,6 +49,7 @@ pipelineJob("activator-pipeline-json") {
         cpsScm {
             scm {
                 git {
+                    branch '$repobranch'
                     extensions {
                         wipeOutWorkspace()
                     }
