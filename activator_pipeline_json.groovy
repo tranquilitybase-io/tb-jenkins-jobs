@@ -1,4 +1,4 @@
-pipelineJob("activator-pipeline-tryout") {
+pipelineJob("activator-pipeline-json") {
     description("This job clones a repo and then calls the Jenkinsfile on that repo. it only clones repos that are hosted on GCR. It takes parameters described below. The Job also uses the credentials that were set up using the Google Oauth plugin")
     keepDependencies(false)
     parameters {
