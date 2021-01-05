@@ -5,6 +5,7 @@ pipelineJob("activator-pipeline-json") {
         stringParam("repourl", "", "Public git repository or Google Source Repository to clone the activator code from")
         stringParam("projectid", "", "GCP project id to deploy the activator into")
         stringParam("activator_params", "", "JSON structure containing key-value parameters for the activator. Passed into the job via the Generic Trigger Jenkins plugin.")
+        stringParam("environment_params", "", "JSON structure containing key-value environment parameters. Passed into the job via the Generic Trigger Jenkins plugin.")
         stringParam("job_unique_id", "", "An id used by external callers (e.g. GCP DAC) to identify an instance of this job. Not required when running from Jenkins")
         stringParam("repobranch", "**", "Specify a branch or tag to be built. Default is current main/master branch. See documentation for 'branches to build' in pipeline")
     }
@@ -14,6 +15,13 @@ pipelineJob("activator-pipeline-json") {
                 genericVariable {
                     key("activator_params")
                     value("\$.activator_params")
+                    expressionType("JSONPath") //Optional, defaults to JSONPath
+                    regexpFilter("") //Optional, defaults  to empty string
+                    defaultValue("") //Optional, defaults to empty string
+                }
+                genericVariable {
+                    key("environment_params")
+                    value("\$.environment_params")
                     expressionType("JSONPath") //Optional, defaults to JSONPath
                     regexpFilter("") //Optional, defaults  to empty string
                     defaultValue("") //Optional, defaults to empty string
