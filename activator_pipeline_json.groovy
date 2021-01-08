@@ -69,6 +69,10 @@ pipelineJob("activator-pipeline-json") {
             }
             scriptPath("Jenkinsfile")
         }
+        environmentVariables {
+            keepBuildVariables(true)
+            keepSystemVariables(true)
+        }
     }
     disabled(false)
 }
